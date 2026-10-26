@@ -1,0 +1,16 @@
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\bin\Debug\net10.0\krestiki-noliki.exe
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\bin\Debug\net10.0\krestiki-noliki.deps.json
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\bin\Debug\net10.0\krestiki-noliki.runtimeconfig.json
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\bin\Debug\net10.0\krestiki-noliki.dll
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\bin\Debug\net10.0\krestiki-noliki.pdb
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki-noliki.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki-noliki.AssemblyInfoInputs.cache
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki-noliki.AssemblyInfo.cs
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki-noliki.csproj.CoreCompileInputs.cache
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki-noliki.sourcelink.json
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki-noliki.dll
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\refint\krestiki-noliki.dll
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki-noliki.pdb
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki-noliki.genruntimeconfig.cache
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\ref\krestiki-noliki.dll
+C:\Users\nk241\OneDrive\Desktop\Programming\C#\krestiki-noliki\obj\Debug\net10.0\krestiki.1FED1D2F.Up2Date
