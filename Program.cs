@@ -10,31 +10,54 @@
               { ".", ".", "." },
               { ".", ".", "." }
            };
-            DrawBoard(board);
-            int isPlaying = 1;
-            while (isPlaying <= 3)
+            string currentPlayer = "X";
+
+            for (int move = 0; move < 5; move++)
             {
-                Console.WriteLine("Ход крестиков (Х)");
-                Console.Write("Введите номер строки (1-3): ");
-                int row = Convert.ToInt32(Console.ReadLine()) - 1;
-
-                Console.Write("Введите номер столбца (1-3): ");
-                int col = Convert.ToInt32(Console.ReadLine()) - 1;
-
-                board[row, col] = "X";
                 DrawBoard(board);
 
-                Console.WriteLine("Ход ноликов (О)"); 
-                Console.Write("Введите номер строки (1-3): ");
-                row = Convert.ToInt32(Console.ReadLine()) - 1;
+                Console.WriteLine($"Ходит игрок {currentPlayer}");
 
-                Console.Write("Введите номер столбца (1-3): ");
-                col = Convert.ToInt32(Console.ReadLine()) - 1;
+                int row = GetValidNumber("Введите номер строки (1-3): ");
+                int col = GetValidNumber("Введите номер столбца(1-3): ");
 
-                board[row, col] = "O";
-                DrawBoard(board);
+                board[row, col] = currentPlayer;
+                if (currentPlayer == "X")
+                {
+                    currentPlayer = "O";
+                }
+                else
+                {
+                    currentPlayer = "X";
+                }
 
-                isPlaying++;
+                Console.WriteLine();
+            }
+            DrawBoard(board);
+        }
+
+        static int GetValidNumber(string message)
+        {
+            while (true)
+            {
+                Console.Write(message);
+                string input = Console.ReadLine();
+
+                if(int.TryParse(input, out int number))
+                {
+                    if(number>=1 && number <= 3)
+                    {
+                        return number - 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка: число должно быть от 1 до 3. Попробуйте ещё раз.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка: нужно ввести число. Попробуйте ещё раз.");
+                }
             }
         }
 
