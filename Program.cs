@@ -5,22 +5,25 @@
         static void Main(string[] args)
         {
             string[,] board = new string[3, 3]
-           {
-              { ".", ".", "." },
-              { ".", ".", "." },
-              { ".", ".", "." }
-           };
+            {
+                { ".", ".", "." },
+                { ".", ".", "." },
+                { ".", ".", "." }
+            };
+
             string currentPlayer = "X";
 
-            for (int move = 0; move < 5; move++)
+            for (int move = 0; move < 9; move++)
             {
                 DrawBoard(board);
                 Console.WriteLine($"Ходит игрок {currentPlayer}");
 
                 int row, col;
-                while (true){
+
+                while (true)
+                {
                     row = GetValidNumber("Введите номер строки (1-3): ");
-                    col = GetValidNumber("Введите номер столбца(1-3): ");
+                    col = GetValidNumber("Введите номер столбца (1-3): ");
 
                     if (board[row, col] == ".")
                     {
@@ -28,15 +31,15 @@
                     }
                     else
                     {
-                        Console.WriteLine("Эта клекта уже занята! Выберите другую.");
+                        Console.WriteLine("Эта клетка уже занята! Выберите другую.");
                     }
                 }
 
                 board[row, col] = currentPlayer;
                 currentPlayer = (currentPlayer == "X") ? "O" : "X";
-
                 Console.WriteLine();
             }
+
             DrawBoard(board);
         }
 
@@ -69,7 +72,7 @@
         {
             Console.WriteLine("  1 2 3");
 
-            for (int row = 0; row < 9; row++)
+            for (int row = 0; row < 3; row++)
             {
                 Console.Write((row + 1) + " ");
 
