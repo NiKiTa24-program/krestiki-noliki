@@ -4,37 +4,140 @@
     {
         static void Main(string[] args)
         {
-            string[,] board = new string[3, 3]
-           {
-              { ".", ".", "." },
-              { ".", ".", "." },
-              { ".", ".", "." }
-           };
-            DrawBoard(board);
-            int isPlaying = 1;
-            while (isPlaying <= 3)
+            while (true)
             {
-                Console.WriteLine("Ход крестиков (Х)");
-                Console.Write("Введите номер строки (1-3): ");
-                int row = Convert.ToInt32(Console.ReadLine()) - 1;
+                PlayOneGame();
 
-                Console.Write("Введите номер столбца (1-3): ");
-                int col = Convert.ToInt32(Console.ReadLine()) - 1;
+                Console.Write("Хотите сыграть ещё раз? (да/нет): ");
+                string answer = Console.ReadLine().ToLower();
 
-                board[row, col] = "X";
+                if (answer != "да" && answer != "д" && answer != "yes" && answer != "y")
+                {
+                    Console.WriteLine("Спасибо за игру!");
+                    break;
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        static void PlayOneGame()
+        {
+            string[,] board = new string[3, 3]
+            {
+                { ".", ".", "." },
+                { ".", ".", "." },
+                { ".", ".", "." }
+            };
+
+            string currentPlayer = "X";
+            bool gameOver = false;
+
+            for (int move = 0; move < 9; move++)
+            {
                 DrawBoard(board);
+                Console.WriteLine($"Ходит игрок {currentPlayer}");
 
-                Console.WriteLine("Ход ноликов (О)"); 
-                Console.Write("Введите номер строки (1-3): ");
-                row = Convert.ToInt32(Console.ReadLine()) - 1;
+                int row, col;
 
-                Console.Write("Введите номер столбца (1-3): ");
-                col = Convert.ToInt32(Console.ReadLine()) - 1;
+                while (true)
+                {
+                    row = GetValidNumber("Введите номер строки (1-3): ");
+                    col = GetValidNumber("Введите номер столбца (1-3): ");
 
-                board[row, col] = "O";
+                    if (board[row, col] == ".")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Эта клетка уже занята! Выберите другую.");
+                    }
+                }
+
+                board[row, col] = currentPlayer;
+
+                if (CheckWin(board, currentPlayer))
+                {
+                    DrawBoard(board);
+                    Console.WriteLine($"Победил игрок {currentPlayer}!");
+                    gameOver = true;
+                    break;
+                }
+
+                if (IsBoardFull(board))
+                {
+                    DrawBoard(board);
+                    Console.WriteLine("Ничья!");
+                    gameOver = true;
+                    break;
+                }
+
+                currentPlayer = (currentPlayer == "X") ? "O" : "X";
+                Console.WriteLine();
+            }
+
+            if (!gameOver)
+            {
                 DrawBoard(board);
+                Console.WriteLine("Игра окончена.");
+            }
+        }
 
-                isPlaying++;
+        static bool CheckWin(string[,] board, string player)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (board[i, 0] == player && board[i, 1] == player && board[i, 2] == player)
+                    return true;
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (board[0, i] == player && board[1, i] == player && board[2, i] == player)
+                    return true;
+            }
+
+            if (board[0, 0] == player && board[1, 1] == player && board[2, 2] == player)
+                return true;
+
+            if (board[0, 2] == player && board[1, 1] == player && board[2, 0] == player)
+                return true;
+
+            return false;
+        }
+
+        static bool IsBoardFull(string[,] board)
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    if (board[row, col] == ".")
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        static int GetValidNumber(string message)
+        {
+            while (true)
+            {
+                Console.Write(message);
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out int number))
+                {
+                    if (number >= 1 && number <= 3)
+                        return number - 1;
+                    else
+                        Console.WriteLine("Ошибка: число должно быть от 1 до 3. Попробуйте ещё раз.");
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка: нужно ввести число. Попробуйте ещё раз.");
+                }
             }
         }
 
