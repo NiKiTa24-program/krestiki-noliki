@@ -4,6 +4,25 @@
     {
         static void Main(string[] args)
         {
+            while (true)
+            {
+                PlayOneGame();
+
+                Console.Write("Хотите сыграть ещё раз? (да/нет): ");
+                string answer = Console.ReadLine().ToLower();
+
+                if (answer != "да" && answer != "д" && answer != "yes" && answer != "y")
+                {
+                    Console.WriteLine("Спасибо за игру!");
+                    break;
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        static void PlayOneGame()
+        {
             string[,] board = new string[3, 3]
             {
                 { ".", ".", "." },
