@@ -46,6 +46,14 @@
                     break;
                 }
 
+                if (IsBoardFull(board))
+                {
+                    DrawBoard(board);
+                    Console.WriteLine("Ничья!");
+                    gameOver = true;
+                    break;
+                }
+
                 currentPlayer = (currentPlayer == "X") ? "O" : "X";
                 Console.WriteLine();
             }
@@ -78,6 +86,19 @@
                 return true;
 
             return false;
+        }
+
+        static bool IsBoardFull(string[,] board)
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    if (board[row, col] == ".")
+                        return false;
+                }
+            }
+            return true;
         }
 
         static int GetValidNumber(string message)
