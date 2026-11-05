@@ -5,6 +5,9 @@
         // главный метод - запускает игру в цикле
         static void Main(string[] args)
         {
+            Console.WriteLine("Добро пожаловать в игру Крестики-нолики");
+            Console.WriteLine("Игроки ходят по очереди. Х ходит первым.");
+            Console.WriteLine();
             while (true)
             {
                 PlayOneGame();
