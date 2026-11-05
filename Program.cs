@@ -27,6 +27,7 @@
         // Одна полноценная партия
         static void PlayOneGame()
         {
+            Console.Clear();
             string[,] board = new string[3, 3]
             {
                 { ".", ".", "." },
