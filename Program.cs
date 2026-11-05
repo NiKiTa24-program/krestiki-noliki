@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        // главный метод - запускает игру в цикле
         static void Main(string[] args)
         {
             while (true)
@@ -20,7 +21,7 @@
                 Console.WriteLine();
             }
         }
-
+        // Одна полноценная партия
         static void PlayOneGame()
         {
             string[,] board = new string[3, 3]
@@ -83,7 +84,7 @@
                 Console.WriteLine("Игра окончена.");
             }
         }
-
+        // Проверяет, есть ли три одинаковых знака в ряд 
         static bool CheckWin(string[,] board, string player)
         {
             for (int i = 0; i < 3; i++)
@@ -106,7 +107,7 @@
 
             return false;
         }
-
+        // Проверяет, заполнены ли все клетки
         static bool IsBoardFull(string[,] board)
         {
             for (int row = 0; row < 3; row++)
@@ -119,7 +120,7 @@
             }
             return true;
         }
-
+        // Запрашивает у игрока число от 1 до 3 с проверкой
         static int GetValidNumber(string message)
         {
             while (true)
@@ -140,7 +141,7 @@
                 }
             }
         }
-
+        // РИсует текущее состояние поля
         static void DrawBoard(string[,] board)
         {
             Console.WriteLine("  1 2 3");
