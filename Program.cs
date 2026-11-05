@@ -17,7 +17,7 @@
 
                 if (answer != "да" && answer != "д" && answer != "yes" && answer != "y")
                 {
-                    Console.WriteLine("Спасибо за игру!");
+                    Console.WriteLine("Спасибо за игру! До встречи!");
                     break;
                 }
 
